@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Security.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer</h2>
+<div class="pull-right">
+    <p>
+        <a href="/Student/Create" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span>Register</a>
+    </p>
+</div>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>ContactNo</th>
+        <th>AddedDate</th>
+        <th>ModifiedDate</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.FirstName @s.LastName</td>
+            <td>@s.Email</td>
+            <td>@s.Address</td>
+            <td>@s.ContactNumber</td>
+            <td>@s.AddedDate</td>
+            <td>@s.ModifiedDate</td>
+            <td>@s.Status</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit/" + @s.Id, "Student")
+                @Html.ActionLink("Delete", "Delete/" + @s.Id, "Student")
+            </td>
+        </tr>
+    }
+</table>
+
+
